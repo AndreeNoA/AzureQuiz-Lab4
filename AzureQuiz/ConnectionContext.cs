@@ -11,9 +11,9 @@ namespace AzureQuiz
         public DbSet<Player> Players { get; set; }
         
 
-        private string connectionString = "https://localhost:8081";
-        private string primaryKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
-        private string databaseName = "Quiz";
+        private string connectionString = "https://andreeiths.documents.azure.com:443/";
+        private string primaryKey = "EAqLshDZx8UWEgN3QcloccFg7aHYaPIzETHzDF1N48bsAvm2VSw1pHkrV5OFYgZygDDCbeVDyDbgZOwI6Zbgaw==";
+        private string databaseName = "QuizGame";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
