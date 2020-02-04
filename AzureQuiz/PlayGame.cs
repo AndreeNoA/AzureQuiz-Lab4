@@ -31,12 +31,12 @@ namespace AzureQuiz
                 foreach (var question in getQuestion)
                 {
                     Console.Clear();
-                    Console.WriteLine($"Your score is {scoreCount.First().Score}");
+                    Console.WriteLine($"Your score is {scoreCount.First().Score}\n");
                     Console.WriteLine(question.QuestionText);
-                    Console.WriteLine(question.AnswerOne);
-                    Console.WriteLine(question.AnswerTwo);
-                    Console.WriteLine(question.AnswerThree);
-                    Console.WriteLine(question.AnswerFour);
+                    Console.WriteLine("\n1. " + question.AnswerOne);
+                    Console.WriteLine("2. " + question.AnswerTwo);
+                    Console.WriteLine("3. " + question.AnswerThree);
+                    Console.WriteLine("4. " + question.AnswerFour);
 
                     var input = Console.ReadKey(true);
                     int guessOption = 0;

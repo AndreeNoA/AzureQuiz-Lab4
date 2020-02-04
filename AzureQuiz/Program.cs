@@ -18,7 +18,7 @@ namespace AzureQuiz
             while (quitQuiz == false)
             {
                 Console.Clear();
-                Console.WriteLine("What do you want to do?\nPress 1 to play.\nPress 2 to create questions.\nPress 3 to see all questions.\nPress 4 to exit.");
+                Console.WriteLine("What do you want to do?\n\nPress 1 to play.\nPress 2 to create questions.\nPress 3 to see all questions.\nPress 4 to exit.");
                 var input = Console.ReadKey(true);
                 switch (input.Key)
                 {
