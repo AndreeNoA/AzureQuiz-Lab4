@@ -7,7 +7,13 @@ namespace AzureQuiz
 {
     public class Create
     {
-        public static void CreateQuestion(ConnectionContext connection)
+        private ConnectionContext connection;
+        public Create(ConnectionContext connection)
+        {
+            this.connection = connection;
+        }
+
+        public void CreateQuestion()
         {
             var query = from question in connection.Questions
                         select question;
@@ -26,7 +32,7 @@ namespace AzureQuiz
             connection.SaveChanges();
         }
 
-        public static int CorrectAnswer()
+        public int CorrectAnswer()
         {
             Console.WriteLine("Which answer is the correct one?");
             var input = Console.ReadKey();
@@ -44,7 +50,7 @@ namespace AzureQuiz
                     return 5;
             }
         }
-        public static string NewQuestion()
+        public string NewQuestion()
         {
             while (true)
             {
@@ -62,7 +68,7 @@ namespace AzureQuiz
             }
         }
 
-        public static string NewAnswer(int number)
+        public string NewAnswer(int number)
         {
             Console.WriteLine("Option number " + number);
             string input = Console.ReadLine();

@@ -5,9 +5,17 @@ using System.Linq;
 
 namespace AzureQuiz
 {
-    class PlayGame
+    public class PlayGame
     {
-        public static void PlayTheGame(ConnectionContext connection, Player currentPlayer)
+        private ConnectionContext connection;
+        private Player currentPlayer;
+        public PlayGame(ConnectionContext connection, Player currentPlayer)
+        {
+            this.connection = connection;
+            this.currentPlayer = currentPlayer;
+        }
+
+        public void PlayTheGame()
         {
             //Query to make a loop through all questions
             int questionId = 1;
