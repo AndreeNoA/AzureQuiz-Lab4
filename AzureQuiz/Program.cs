@@ -12,7 +12,7 @@ namespace AzureQuiz
         {
             var connection = new ConnectionContext();                        
             connection.Database.EnsureCreated();
-
+            
             Player currentPlayer = PickPlayer(connection);
             bool quitQuiz = false;
             while (quitQuiz == false)

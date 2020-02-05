@@ -10,14 +10,9 @@ namespace AzureQuiz
         public static void PlayTheGame(ConnectionContext connection, Player currentPlayer)
         {
             //Query to make a loop through all questions
-            int questionId = 0;
+            int questionId = 1;
             var questionCount = from question in connection.Questions
                                 select question;
-
-            //Keeping and updating the players score
-            var scoreCount = from player in connection.Players
-                             where player.Name == currentPlayer.Name
-                             select player;
 
             //Fetch the current question from the db
             var getQuestion = from question in connection.Questions
@@ -27,16 +22,13 @@ namespace AzureQuiz
             while (questionId <= questionCount.Count())
             {
 
-
-                foreach (var question in getQuestion)
-                {
                     Console.Clear();
-                    Console.WriteLine($"Your score is {scoreCount.First().Score}\n");
-                    Console.WriteLine(question.QuestionText);
-                    Console.WriteLine("\n1. " + question.AnswerOne);
-                    Console.WriteLine("2. " + question.AnswerTwo);
-                    Console.WriteLine("3. " + question.AnswerThree);
-                    Console.WriteLine("4. " + question.AnswerFour);
+                    Console.WriteLine($"Your score is {currentPlayer.Score}\n");
+                    Console.WriteLine(getQuestion.First().QuestionText);
+                    Console.WriteLine("\n1. " + getQuestion.First().AnswerOne);
+                    Console.WriteLine("2. " + getQuestion.First().AnswerTwo);
+                    Console.WriteLine("3. " + getQuestion.First().AnswerThree);
+                    Console.WriteLine("4. " + getQuestion.First().AnswerFour);
 
                     var input = Console.ReadKey(true);
                     int guessOption = 0;
@@ -55,12 +47,11 @@ namespace AzureQuiz
                             guessOption = 4;
                             break;
                     }
-                    if (guessOption == question.CorrectAnswer)
+                    if (guessOption == getQuestion.First().CorrectAnswer)
                     {
-                        scoreCount.First().Score++;
+                        currentPlayer.Score++;
                         connection.SaveChanges();
                     }
-                }
                 questionId++;
             }
         }
