@@ -12,7 +12,7 @@ namespace AzureQuiz
         
 
         private string connectionString = "https://andreeiths.documents.azure.com:443/";
-        private string primaryKey = "EAqLshDZx8UWEgN3QcloccFg7aHYaPIzETHzDF1N48bsAvm2VSw1pHkrV5OFYgZygDDCbeVDyDbgZOwI6Zbgaw==";
+        private string primaryKey = "addDBKeyHere";
         private string databaseName = "QuizGame";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
